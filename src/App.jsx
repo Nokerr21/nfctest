@@ -7,7 +7,9 @@ import { QrCodeScanner } from "./QrCodeScanner"
 
 
 
+
 export default function App(){
+  
   const [scanResult, setScanResult] = useState("")
   const [scanTime, setScanTime] = useState("")
   const [scannerState, setScannerState] = useState("")
