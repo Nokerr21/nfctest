@@ -1,6 +1,8 @@
 import { consoleLogWrite } from "./ConsoleLogWrite";
 import { consoleLogWriteTest } from "./ConsoleLogWriteTest";
 import { sleep } from "./Sleep";
+import { useState } from "react"
+
 
 export default async function writeTag(message, batchNumber, times = 2) {
   var checkBox = document.getElementById("batchCheck");
@@ -27,7 +29,7 @@ export default async function writeTag(message, batchNumber, times = 2) {
         consoleLogWrite("Message: '" + message + "' written!" + "\n" + "TimeStamp: " + dateTime + "\n" + "Index: " + index + "\n" + "BatchNumber: " + batchNumber);
         console.log(message + "@@@@@@@@@@@@@@@@@@@@@@");
         await sleep(1000);
-        await writeTag(message);
+        await writeTag(message, batchNumber);
       }
       else{
         consoleLogWrite("Message: '" + message + "' written!" + "\n" + "TimeStamp: " + dateTime + "\n" + "Index: " + index);
@@ -37,7 +39,7 @@ export default async function writeTag(message, batchNumber, times = 2) {
       //consoleLogWrite(error);
       if (times > 0 && error.name != 'AbortError') {
         consoleLogWrite(error + "\n"+ "Can't write tag! try " + times + " more times!");
-        return await writeTag(message, times - 1);
+        return await writeTag(message, batchNumber, times - 1);
       }
       //consoleLogWrite(error.code);
       else if(error.name == 'AbortError'){
