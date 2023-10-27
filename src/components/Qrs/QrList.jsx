@@ -25,6 +25,7 @@ export function QrList({ qrs, deleteQr, setBatchNumber, batchNumber }) {
                     <Qr
                         {... qr}
                         key={qr.id}
+                        batchNumber={batchNumber}
                         writeTag={writeTag}
                         deleteQr={deleteQr}
                         logSelectedQr={logSelectedQr}

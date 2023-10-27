@@ -2,7 +2,7 @@ import { consoleLogWrite } from "./ConsoleLogWrite";
 import { consoleLogWriteTest } from "./ConsoleLogWriteTest";
 import { sleep } from "./Sleep";
 
-export default async function writeTag(message, times = 2) {
+export default async function writeTag(message, batchNumber, times = 2) {
   var checkBox = document.getElementById("batchCheck");
   console.log(message);
   //setMess(message);
